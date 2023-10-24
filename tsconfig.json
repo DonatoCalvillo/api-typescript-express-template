@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "target": "ES2021",
+    "esModuleInterop": true,
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "moduleResolution": "Node",
+    "types": ["node", "jest", "supertest"],
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "noEmit": false,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/**.ts", "tests/**/**.ts"],
+  "exclude": ["node_modules", "./dist"]
+}

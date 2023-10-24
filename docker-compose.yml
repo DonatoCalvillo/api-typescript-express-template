@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  api-template-production:
+    container_name: api-template-production
+    env_file: .env
+    build:
+      target: production
+      context: .
+      args:
+        - PORT=${PORT}
+    ports:
+      - "${PORT}:${PORT}"
+
+  api-template-development:
+    container_name: api-template-development
+    restart: unless-stopped
+    env_file: .env
+    build:
+      target: dev
+      context: .
+      args:
+        - PORT=${PORT}
+    ports:
+      - "${PORT}:${PORT}"
+      - 9229:9229
+    volumes:
+      - .:/project
+      - node_modules:/project/node_modules/
+volumes:
+  node_modules:
