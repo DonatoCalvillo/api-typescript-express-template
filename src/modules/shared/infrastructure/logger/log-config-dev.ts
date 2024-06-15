@@ -12,7 +12,7 @@ const devFormat = printf(({ timestamp, level, message, ...metadata }) => {
 
   const requestId: string | null = metadata.metadata.requestId
 
-  if (requestId !== null && requestId !== '') {
+  if (requestId && requestId !== '') {
     msg += `[${JSON.stringify(requestId)}] - `
   }
 
