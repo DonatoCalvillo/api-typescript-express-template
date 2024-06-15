@@ -7,10 +7,10 @@ import swaggerJsDoc from 'swagger-jsdoc'
 import { swaggerConfiguration } from './config/swagger'
 import { variables } from './config/variables'
 
-import { type Logger } from './shared/domain/logger'
-import { container } from './shared/infrastructure/container'
+import { type Logger } from './modules/shared/domain/logger'
+import { container } from './modules/shared/infrastructure/container'
 
-import { healthRouter } from './health/infrastructure/api/routes/health-router'
+import { healthRouter } from './modules/health/infrastructure/api/routes/health-router'
 
 export class App {
   _app: Application
