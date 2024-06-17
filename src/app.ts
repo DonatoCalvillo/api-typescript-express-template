@@ -13,7 +13,7 @@ import { container } from "./modules/shared/infrastructure/container";
 import { healthRouter } from "./modules/health/infrastructure/api/routes/health-router";
 
 export class App {
-  private readonly app: Application;
+  public app: Application;
   private readonly port: number;
   private readonly logger: Logger;
 
