@@ -3,23 +3,23 @@ import {
   format,
   transports,
   type Logger as WinstonLoggerType
-} from 'winston'
+} from 'winston';
 
-const { combine, timestamp: toFormat, printf } = format
+const { combine, timestamp: toFormat, printf } = format;
 
 const devFormat = printf(({ timestamp, level, message, ...metadata }) => {
-  let msg = ''
+  let msg = '';
 
-  const requestId: string | null = metadata.metadata.requestId
+  const requestId: string | null = metadata.metadata.requestId;
 
   if (requestId && requestId !== '') {
-    msg += `[${JSON.stringify(requestId)}] - `
+    msg += `[${JSON.stringify(requestId)}] - `;
   }
 
-  msg += typeof message === 'object' ? JSON.stringify(message) : message
+  msg += typeof message === 'object' ? JSON.stringify(message) : message;
 
-  return `${timestamp} [${level}]: ${msg}`
-})
+  return `${timestamp} [${level}]: ${msg}`;
+});
 
 const devConfig = (): WinstonLoggerType =>
   createLogger({
@@ -33,6 +33,6 @@ const devConfig = (): WinstonLoggerType =>
       devFormat
     ),
     transports: [new transports.Console()]
-  })
+  });
 
-export default devConfig
+export default devConfig;

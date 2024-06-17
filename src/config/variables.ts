@@ -1,7 +1,7 @@
-import convict from 'convict'
+import convict from 'convict';
 
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from 'dotenv';
+dotenv.config();
 
 const variables = convict({
   server: {
@@ -18,8 +18,8 @@ const variables = convict({
     default: 'development',
     env: 'NODE_ENV'
   }
-})
+});
 
-variables.validate()
+variables.validate();
 
-export { variables }
+export { variables };

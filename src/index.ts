@@ -1,8 +1,8 @@
-import dotenv from 'dotenv'
-import { App } from './app'
+import dotenv from 'dotenv';
+import { App } from './app';
 
-dotenv.config()
+dotenv.config();
 
-const app = new App()
+const app = new App();
 
-app.listen()
+app.listen();

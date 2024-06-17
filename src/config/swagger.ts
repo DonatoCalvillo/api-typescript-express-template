@@ -13,4 +13,4 @@ export const swaggerConfiguration = {
     ]
   },
   apis: ['./src/**/infrastructure/api/routes/*.ts']
-}
+};
