@@ -12,7 +12,8 @@
     "build:tsc": "tsc -p tsconfig.build.json",
     "test": "jest",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,8 @@
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.5",
-    "typescript-eslint": "^7.13.1"
+    "typescript-eslint": "^7.13.1",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "awilix": "^9.0.0",
