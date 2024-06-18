@@ -20,12 +20,11 @@ module.exports = {
     "**/(?!!+)(*.)+(spec|test).+(ts|tsx|js)",
     "**/tests/e2e/**/*.e2e.spec.+(ts|tsx|js)",
   ],
-  modulePaths: ["<rootDir>/src/"],
   transformIgnorePatterns: [
-    "/node_modules/",
+    "/node_modules/", // Agrega las dependencias que requieres transformar aquí
   ],
   testPathIgnorePatterns: ["<rootDir>/node_modules", "<rootDir>/dist"],
   extensionsToTreatAsEsm: [".ts"],
-  modulePath: [compilerOptions.baseUrl],
+  modulePaths: [compilerOptions.baseUrl],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths)
 };
