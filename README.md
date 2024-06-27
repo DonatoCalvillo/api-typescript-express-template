@@ -1,79 +1,138 @@
-# API SKELETON
+<p align="center">
+  <a href="https://expressjs.com/" target="blank"><img src="images/express-and-ts.png" alt="Express Logo" width="512" /></a>
+</p>
 
-## Environments vars
+<h1 align="center">🚀 Express + Typescript Template 🚀</h1>
 
-This project uses the following environment variables:
+<p align="center">
+  Template for new API REST based on Express and Typescript with Clean Code and Hexagonal Architecture
+</p>
 
-| Name     | Description                   | Default Value   |
-| -------- | ----------------------------- | --------------- |
-| NODE_ENV | Environment that is running   | "development"   |
-| PORT     | Port where is running the API | 8083            |
+<p align="center">
+  <a href="https://github.com/AlbertHernandez/express-typescript-service-template/actions/workflows/node.yml?branch=main"><img src="https://github.com/AlbertHernandez/express-typescript-service-template/actions/workflows/node.yml/badge.svg?branch=main" alt="nodejs"/></a>
+  <a href="https://nodejs.org/docs/latest-v20.x/api/index.html"><img src="https://img.shields.io/badge/node-20.x-green.svg" alt="node"/></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/typescript-5.x-blue.svg" alt="typescript"/></a>
+  <a href="https://www.npmjs.com/"><img src="https://img.shields.io/badge/npm-10.x-red.svg" alt="npm"/></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/Compiler-TypeScript-blue.svg" alt="TypeScript"/></a>
+  <a href="https://jestjs.io/"><img src="https://img.shields.io/badge/Test-Jest_-C21325?logo=jest&logoColor=white" alt="Jest"/></a>
+  <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Dockerized 🐳_-blue.svg" alt="docker"/></a>
+</p>
 
-## Pre-requisites
+## Motivation 👀
 
-- Install [Node.js](https://nodejs.org/en/) version <= v18.16.1
-- Install [NPM](https://nodejs.org/en/) version <= 9.5.1
-- Install [Docker](https://www.docker.com/)
+Recently I have been very involved in the development of backend applications with javascript technologies, for this I configure per project a series of tools to have the best possible practices such as dependency injection, testing, strong typing, hexagonal architecture, docker images, pre push and commits. 
 
-## Getting started
+This tools for its installation per project is a tedious and laborious task so I have chosen to make a template that we can use at the beginning of the application.
 
-- Clone the repository
+Inspired by projects of very important and knowledgeable people in the field such as:
 
+- [Fernando Herrera](https://github.com/Klerith)
+
+- [Albert Hernandez](https://github.com/AlbertHernandez)
+
+## 🧑‍💻 Developing
+
+First we need to download the repository
+
+```bash
+git clone https://github.com/DonatoCalvillo/api-typescript-express-template.git
 ```
-git clone  https://github.com/dev-vendmine/vendmine-api.git
+
+And install all dependencies
+
+```bash
+cd api-typescript-express-template && npm install
 ```
 
-- Install dependencies
+We need to set the environments variables
 
-```
-cd api-express-ts-skeleton
-npm install
+```bash
+cp .env.example .env
 ```
 
-- Build and run the project in development
+To run the project we have options
 
+### 🔥 Hot reload (development)
+
+We can run the project in development with hot reload and exposing a **debug port**, the `9229`, but first we need to configure the IDE
+
+Now, you should be able to start debugging configuring using your IDE. For example, if you are using vscode, you can create a `.vscode/launch.json` file with the following config:
+
+```json
+{
+  "version": "0.1.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Rest Api",
+      "restart": true,
+      "port": 9229
+    }
+  ]
+}
 ```
+
+Once you configure the IDE we can run 
+```bash
 npm run start:dev
 ```
 
-Navigate to `http://localhost:8083`
+### 🐳 Docker
 
-- Health API status
+The project is dockerized so we need to run
 
-  Health Endpoint : http://localhost:8083/api/health
+- Development
 
-- API Document endpoints
+```bash
+docker-compose up -d rest-api-dev
+```
 
-  Swagger-ui Endpoint : http://localhost:8083/api/docs
+- Production
 
-## TypeScript + Node
+```bash
+docker-compose up -d rest-api-prd
+```
 
-The main purpose of this repository is to show a project setup and workflow for writing microservice. The Rest APIs will be using the Swagger (OpenAPI) Specification.
+If you want to stop the container, you can stop the service running:
 
-## Commands
+```bash
+docker-compose down
+```
 
-| Npm Script    | Description                                                                     |
-| ------------- | ------------------------------------------------------------------------------- |
-| `start`       | Runs full build and runs node on dist/index.ts. Can be invoked with `npm start` |
-| `start:dev`   | Runs development node on src/index.ts. Can be invoked with `npm start:dev`      |
-| `build`       | Full build. Runs all build tasks                                                |
-| `build:clean` | Clean the build to production build                                             |
-| `build:tsc`   | Compiles the ts to js                                                           |
-| `test`        | Runs build and run tests using jest                                             |
+## ⚙️ Building
 
-## Testing
+To build the api we can run 
+```bash
+npm run build
+```
+
+## 📋 Testing
 
 The tests are written in Mocha and the assertions done using Jest
 
 ```
-"jest": "^29.7.0",
-"supertest": "^6.3.3",
+"jest": "^29.7.0"
 ```
 
-### Running tests using NPM Scripts
+We can run the test with the command
 
 ```
 npm run test
 ```
 
 Test files are created under test folder.
+
+## 🔦 Linting
+
+To run the linter you can execute:
+
+```bash
+npm run lint
+```
+
+And for trying to fix lint issues automatically, you can run:
+
+```bash
+npm run lint:fix
+```
