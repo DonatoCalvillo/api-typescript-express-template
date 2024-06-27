@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express';
-import { type Logger } from '../../../../shared/domain/logger';
+import { type Logger } from '@shared/domain/logger';
 
 export class HealthController {
   _logger: Logger;

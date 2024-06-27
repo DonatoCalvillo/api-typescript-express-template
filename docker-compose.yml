@@ -1,8 +1,8 @@
 version: "3.8"
 
 services:
-  api-template-production:
-    container_name: api-template-production
+  rest-api-prd:
+    container_name: rest-api-prd
     env_file: .env
     build:
       target: production
@@ -12,8 +12,8 @@ services:
     ports:
       - "${PORT}:${PORT}"
 
-  api-template-development:
-    container_name: api-template-development
+  rest-api-dev:
+    container_name: rest-api-dev
     restart: unless-stopped
     env_file: .env
     build:

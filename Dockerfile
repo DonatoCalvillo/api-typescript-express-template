@@ -1,4 +1,4 @@
-FROM node:18-alpine3.16 AS base
+FROM node:20-alpine3.19 AS base
 
 ENV DIR /project
 WORKDIR $DIR
@@ -7,7 +7,7 @@ FROM base AS dev
 
 COPY package*.json $DIR
 
-RUN npm install 
+RUN npm install
 
 COPY tsconfig*.json $DIR
 COPY src $DIR/src
