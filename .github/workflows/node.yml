@@ -1,0 +1,37 @@
+name: 'Node'
+
+on:
+  push:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v4
+
+      - name: 'Cache dependencies 📦'
+        id: cache-node_modules
+        uses: actions/cache@v4
+        with:
+          path: 'node_modules'
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}--${{ hashFiles('.github/workflows/node.yml') }}
+
+      - name: 'Setup Node.js ⚙️'
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: 'Install dependencies 📦'
+        if: steps.cache-node_modules.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: 'Build typescript 🏗️'
+        run: npm run build && find dist/src/index.js
+
+      - name: 'Lint code 🔦'
+        run: npm run lint
+      
+      - name: 'Run tests 📋'
+        run: npm run test
