@@ -17,8 +17,7 @@ CMD ["npm", "run", "start:dev"]
 
 FROM base AS build
 
-RUN apk update && apk add --no-cache dumb-init
-
+RUN apk update && apk add --no-cache dumb-init=1.2.3
 COPY package*.json $DIR
 
 RUN npm ci
