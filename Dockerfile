@@ -1,4 +1,4 @@
-FROM node:20-alpine3.19 AS base
+FROM node:20-alpine3.18 AS base
 
 ENV DIR /project
 WORKDIR $DIR
@@ -17,8 +17,7 @@ CMD ["npm", "run", "start:dev"]
 
 FROM base AS build
 
-RUN apk update && apk add --no-cache dumb-init
-
+RUN apk update && apk add --no-cache dumb-init=1.2.5-r2
 COPY package*.json $DIR
 
 RUN npm ci
